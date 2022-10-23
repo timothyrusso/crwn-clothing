@@ -26,14 +26,33 @@ provider.setCustomParameters({ prompt: 'select_account' });
 export const auth = getAuth();
 export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
+// Call the Firestore db
 export const db = getFirestore();
 
 export const createUserDocumentFromAuth = async (userAuth) => {
+  // Check if there is a document reference in the db
   const userDocRef = doc(db, 'users', userAuth.uid);
 
-  console.log(userDocRef);
-
+  // Get the data of the user from the db
   const userSnapshot = await getDoc(userDocRef);
-  console.log(userSnapshot);
-  console.log(userSnapshot.exists());
+
+  // What if the user do not exist
+  if (!userSnapshot.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+
+    // Create the user in the db
+    try {
+      await setDoc(userDocRef, {
+        displayName,
+        email,
+        createdAt,
+      });
+    } catch (error) {
+      console.log('error creating the user', error.message);
+    }
+  }
+
+  // What if the user already exist
+  return userDocRef;
 };

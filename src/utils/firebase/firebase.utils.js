@@ -4,6 +4,7 @@ import {
   signInWithRedirect,
   signInWithPopup,
   GoogleAuthProvider,
+  createUserWithEmailAndPassword,
 } from 'firebase/auth';
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore';
 
@@ -34,6 +35,10 @@ export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googlePro
 export const db = getFirestore();
 
 export const createUserDocumentFromAuth = async (userAuth) => {
+
+  // Check if the userAuth exist
+  if (!userAuth) return;
+
   // Check if there is a document reference in the db
   const userDocRef = doc(db, 'users', userAuth.uid);
 
@@ -60,3 +65,9 @@ export const createUserDocumentFromAuth = async (userAuth) => {
   // What if the user already exist
   return userDocRef;
 };
+
+export const createAuthUserWithEmailAndPassword = async (email, password) => {
+  if (!email || !password) return;
+
+  return await createUserWithEmailAndPassword(auth, email, password)
+}

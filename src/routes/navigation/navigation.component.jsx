@@ -1,9 +1,13 @@
 import { Outlet, Link } from 'react-router-dom';
-import { Fragment } from 'react';
+import { Fragment, useContext } from 'react';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
 import './navigation.styles.scss';
+import { UserContext } from '../../contexts/user.context'
 
 const Navigation = () => {
+  const { currentuser } = useContext(UserContext);
+  console.log(currentuser);
+
   return (
     <Fragment>
       <div className="navigation">

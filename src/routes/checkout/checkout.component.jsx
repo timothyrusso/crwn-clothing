@@ -4,7 +4,7 @@ import CheckoutItem from '../../components/checkout-item/checkout-item.component
 import './checkout.styles.scss';
 
 const Checkout = () => {
-  const { cartItems, addItemToCart, removeItemToCart } =
+  const { cartItems } =
     useContext(CartContext);
 
   return (
@@ -29,7 +29,7 @@ const Checkout = () => {
       {cartItems.map((cartItem) =>
       (
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-      );
+      )
       )}
       <span className='total'>Total : 0</span>
     </div>

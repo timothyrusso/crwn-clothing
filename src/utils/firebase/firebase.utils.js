@@ -51,6 +51,7 @@ export const addCollectionAndDocuments = async (
   objectsToAdd
 ) => {
   const collectionRef = collection(db, collectionKey);
+  const batch = writeBatch(db);
 };
 
 export const createUserDocumentFromAuth = async (

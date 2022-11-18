@@ -46,12 +46,21 @@ export const signInWithGoogleRedirect = () =>
 // Call the Firestore db
 export const db = getFirestore();
 
+// Method that allow to add some data to the database
 export const addCollectionAndDocuments = async (
   collectionKey,
   objectsToAdd
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);
+
+  objectsToAdd.forEach((object) => {
+    const docRef = doc(collectionRef, object.title.toLowerCase());
+    batch.set(docRef, object);
+  });
+
+  await batch.commit();
+  console.log('Done');
 };
 
 export const createUserDocumentFromAuth = async (

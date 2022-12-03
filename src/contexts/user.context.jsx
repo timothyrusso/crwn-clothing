@@ -3,6 +3,7 @@ import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
 } from '../utils/firebase/firebase.utils';
+import { createAction } from '../utils/reducer/reducer.utils';
 
 // Actual value we want to acces
 export const UserContext = createContext({
@@ -40,7 +41,7 @@ export const UserProvider = ({ children }) => {
   const [{ currentUser }, dispach] = useReducer(userReducer, INITIAL_STATE);
   console.log(currentUser);
   const setCurrentUser = (user) => {
-    dispach({ type: USER_ACTION_TYPES.SET_CURRENT_USER, payload: user });
+    dispach(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
   };
 
   // Values that we want to pass to the nested components

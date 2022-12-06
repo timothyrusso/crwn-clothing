@@ -17,7 +17,7 @@ export const USER_ACTION_TYPES = {
 };
 
 const userReducer = (state, action) => {
-  console.log('dispached');
+  console.log('dispatched');
   console.log(action);
   const { type, payload } = action;
 
@@ -38,10 +38,10 @@ const INITIAL_STATE = {
 
 // Context provider
 export const UserProvider = ({ children }) => {
-  const [{ currentUser }, dispach] = useReducer(userReducer, INITIAL_STATE);
+  const [{ currentUser }, dispatch] = useReducer(userReducer, INITIAL_STATE);
   console.log(currentUser);
   const setCurrentUser = (user) => {
-    dispach(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
+    dispatch(createAction(USER_ACTION_TYPES.SET_CURRENT_USER, user));
   };
 
   // Values that we want to pass to the nested components

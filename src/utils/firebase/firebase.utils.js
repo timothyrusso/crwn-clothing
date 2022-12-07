@@ -51,7 +51,8 @@ export const db = getFirestore();
 // Method that allow to add some data to the database
 export const addCollectionAndDocuments = async (
   collectionKey,
-  objectsToAdd
+  objectsToAdd,
+  field
 ) => {
   const collectionRef = collection(db, collectionKey);
   const batch = writeBatch(db);

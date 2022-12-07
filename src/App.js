@@ -13,7 +13,7 @@ import Shop from './routes/shop/shop.component';
 import Checkout from './routes/checkout/checkout.component';
 
 const App = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   // Centralized handler for user authentication.
   // When the user state change, the listener method listen the event and update the user state.
   // If the user doesn't exist,create a new one, if the user exist just login.

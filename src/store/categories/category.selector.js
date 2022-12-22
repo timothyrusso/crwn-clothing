@@ -1,3 +1,6 @@
+import { createSelector } from 'reselect';
+
+
 export const selectCategories = (state) => {
   console.log('selector fired');
   return state.categories.categories.reduce((acc, category) => {

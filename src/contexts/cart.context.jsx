@@ -88,12 +88,11 @@ export const CartProvider = ({ children }) => {
     useReducer(cartRedurer, INITIAL_STATE);
 
   const updateCartItemsReducer = (newCartItems) => {
-    // Generate new cart count
+
     const newCartCount = newCartItems.reduce(
       (total, cartItem) => total + cartItem.quantity,
       0
     );
-    // Generate new cart total
     const newCartTotal = newCartItems.reduce(
       (total, cartItem) => total + cartItem.quantity * cartItem.price,
       0

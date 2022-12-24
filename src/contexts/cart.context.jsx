@@ -1,23 +1,23 @@
 import { createContext, useReducer } from 'react';
 import { createAction } from '../utils/reducer/reducer.utils';
 
-const addCartItem = (cartItems, productToAdd) => {
-  // find if cartItems contains productToAdd
-  const existingCartItem = cartItems.find(
-    (cartItem) => cartItem.id === productToAdd.id
-  );
-  // Increment quantity
-  if (existingCartItem) {
-    // Return new array with modified cartItems
-    return cartItems.map((cartItem) =>
-      cartItem.id === productToAdd.id
-        ? { ...cartItem, quantity: cartItem.quantity + 1 }
-        : cartItem
+  const addCartItem = (cartItems, productToAdd) => {
+    // find if cartItems contains productToAdd
+    const existingCartItem = cartItems.find(
+      (cartItem) => cartItem.id === productToAdd.id
     );
-  }
-  // Return new array with new cart item
-  return [...cartItems, { ...productToAdd, quantity: 1 }];
-};
+    // Increment quantity
+    if (existingCartItem) {
+      // Return new array with modified cartItems
+      return cartItems.map((cartItem) =>
+        cartItem.id === productToAdd.id
+          ? { ...cartItem, quantity: cartItem.quantity + 1 }
+          : cartItem
+      );
+    }
+    // Return new array with new cart item
+    return [...cartItems, { ...productToAdd, quantity: 1 }];
+  };
 
 const removeCartItem = (cartItems, cartItemToRemove) => {
   // Find the cart item to remove

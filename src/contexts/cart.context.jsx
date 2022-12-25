@@ -64,7 +64,7 @@ const INITIAL_STATE = {
   cartTotal: 0,
 };
 
-const cartRedurer = (state, action) => {
+const cartReducer = (state, action) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -85,7 +85,7 @@ const cartRedurer = (state, action) => {
 
 export const CartProvider = ({ children }) => {
   const [{ cartItems, isCartOpen, cartCount, cartTotal }, dispatch] =
-    useReducer(cartRedurer, INITIAL_STATE);
+    useReducer(cartReducer, INITIAL_STATE);
 
   const updateCartItemsReducer = (newCartItems) => {
 

@@ -38,7 +38,7 @@ const SignInForm = () => {
           alert('Incorrect password for email');
           break;
         case 'auth/user-not-found':
-          alert('No sser associated with this email');
+          alert('No user associated with this email');
           break;
         default:
           console.log(error);

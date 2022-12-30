@@ -69,7 +69,7 @@ export function* signUp({ payload: { email, password, displayName } }) {
       email,
       password
     );
-    yield put(signUpSuccess(user, displayName));
+    yield put(signUpSuccess(user, { displayName }));
   } catch (error) {
     yield put(signUpFailed(error));
   }

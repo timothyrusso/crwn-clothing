@@ -9,8 +9,8 @@ import {
 } from '../../store/user/user.action';
 
 const defaultFormFields = {
-  displayName: '',
   email: '',
+  password: '',
 };
 
 const SignInForm = () => {

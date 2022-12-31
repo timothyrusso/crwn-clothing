@@ -1,4 +1,0 @@
-[dev]
-  [dev.https]
-    certFile = "ca.pem"
-    keyFile = "ca.key"

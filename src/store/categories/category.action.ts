@@ -1,4 +1,8 @@
-import { CATEGORIES_ACTION_TYPES } from './category.types';
+import {
+  CATEGORIES_ACTION_TYPES,
+  Category,
+  CategoryItem,
+} from './category.types';
 import { createAction } from '../../utils/reducer/reducer.utils';
 
 export const fetchCategoriesStart = () =>

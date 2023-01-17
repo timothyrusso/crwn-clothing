@@ -8,7 +8,7 @@ import {
   RemoveButton,
 } from './checkout-item.styles.jsx';
 import {
-  clearItemToCart,
+  clearItemFromCart,
   addItemToCart,
   removeItemFromCart,
 } from '../../store/cart/cart.action';
@@ -20,7 +20,7 @@ const CheckoutItem = ({ cartItem }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
 
-  const clearItemHandler = () => dispatch(clearItemToCart(cartItems, cartItem));
+  const clearItemHandler = () => dispatch(clearItemFromCart(cartItems, cartItem));
   const addItemHandler = () => dispatch(addItemToCart(cartItems, cartItem));
   const removeItemHandler = () =>
     dispatch(removeItemFromCart(cartItems, cartItem));

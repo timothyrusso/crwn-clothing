@@ -1,13 +1,10 @@
-import { useState } from 'react';
-import {
-  createAuthUserWithEmailAndPassword,
-  createUserDocumentFromAuth,
-} from '../../utils/firebase/firebase.utils';
+import { useState, FormEvent, ChangeEvent } from 'react';
 import FormInput from '../form-input/form-input.component';
-import { SignUpContainer } from './sign-up-form.styles.jsx';
+import { SignUpContainer } from './sign-up-form.styles';
 import Button from '../button/button.component';
 import { useDispatch } from 'react-redux';
 import { signUpStart } from '../../store/user/user.action';
+import { AuthError, AuthErrorCodes } from 'firebase/auth';
 
 const defaultFormFields = {
   displayName: '',
@@ -25,7 +22,7 @@ const SignUpForm = () => {
     setFormFields(defaultFormFields);
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (password !== confirmPassword) {
@@ -34,10 +31,10 @@ const SignUpForm = () => {
     }
 
     try {
-      dispatch(signUpStart(email, password, displayName))
+      dispatch(signUpStart(email, password, displayName));
       resetFormFields();
     } catch (error) {
-      if (error.code === 'auth/mail-already-in-use') {
+      if ((error as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
         alert('Cannot create user, email already in use');
       } else {
         console.log('User creation encountered an error', error);
@@ -45,7 +42,7 @@ const SignUpForm = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setFormFields({ ...formFields, [name]: value });
   };
@@ -87,9 +84,7 @@ const SignUpForm = () => {
           name="confirmPassword"
           value={confirmPassword}
         />
-        <Button buttonType="inverted" type="submit">
-          Sign Up
-        </Button>
+        <Button type="submit">Sign Up</Button>
       </form>
     </SignUpContainer>
   );

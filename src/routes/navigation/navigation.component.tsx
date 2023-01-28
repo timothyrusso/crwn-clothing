@@ -8,7 +8,7 @@ import {
   LogoContainer,
   NavLinks,
   NavLink,
-} from './navigation.styles.js';
+} from './navigation.styles';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectIsCartOpen } from '../../store/cart/cart.selector';

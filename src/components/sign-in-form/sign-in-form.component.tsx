@@ -1,6 +1,6 @@
 import { useState, FormEvent, ChangeEvent } from 'react';
 import FormInput from '../form-input/form-input.component';
-import { SignUpContainer, ButtonsContainer } from './sign-in-form.styles.jsx';
+import { SignUpContainer, ButtonsContainer } from './sign-in-form.styles';
 import Button, { BUTTON_TYPE_CLASSES } from '../button/button.component';
 import { useDispatch } from 'react-redux';
 import {

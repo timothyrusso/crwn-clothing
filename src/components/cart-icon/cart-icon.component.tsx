@@ -2,7 +2,7 @@ import {
   ShoppingIcon,
   CartItemContainer,
   ItemCount,
-} from './cart-icon.styles.jsx';
+} from './cart-icon.styles';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   selectCartCount,

@@ -3,7 +3,7 @@ import {
   GoogleSignInButton,
   InvertedButton,
   ButtonSpinner,
-} from './button.styles.jsx';
+} from './button.styles';
 import { FC, ButtonHTMLAttributes } from 'react';
 
 export enum BUTTON_TYPE_CLASSES {

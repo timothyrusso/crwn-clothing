@@ -4,7 +4,7 @@ import {
   CheckoutHeader,
   HeaderBlock,
   Total,
-} from './checkout.styles.jsx';
+} from './checkout.styles';
 import {
   selectCartItems,
   selectCartTotal,

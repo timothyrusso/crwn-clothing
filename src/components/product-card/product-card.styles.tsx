@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ProductCardContainer = styled.div`
-width: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   height: 350px;
@@ -19,6 +19,13 @@ width: 100%;
     position: absolute;
     top: 255px;
     display: none;
+
+    @media screen and (max-width: 800px) {
+      display: block;
+      opacity: 0.9;
+      min-width: unset;
+      padding: 0 10px;
+    }
   }
   &:hover {
     img {
@@ -28,6 +35,20 @@ width: 100%;
       opacity: 0.85;
       display: flex;
     }
+  }
+
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+
+    &:hover {
+      img {
+        opacity: unset;
+      }
+      button {
+        opacity: unset;
+      }
+    }
+  }
 `;
 
 export const Footer = styled.div`

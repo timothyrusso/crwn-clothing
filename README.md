@@ -1,6 +1,6 @@
 # Crown Clothing eCommerce project
 
-This project is a simple eCommerce built with React.js, TypeScript, Redux and Firebase'
+This project is a simple eCommerce built with React.js, TypeScript, Redux and Firebase.
 
 ## How to run the app locally
 

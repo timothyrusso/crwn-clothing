@@ -18,13 +18,18 @@ export const Title = styled(Link)`
 `;
 
 export const Preview = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 25px;
 
   @media screen and (max-width: 800px) {
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    column-gap: 15px;
-    row-gap: 20px;
+    grid-column-gap: 15px;
+    grid-row-gap: 25px;
+  }
+
+  @media screen and (max-width: 400px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 25px;
   }
 `;

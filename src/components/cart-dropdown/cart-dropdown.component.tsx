@@ -15,18 +15,15 @@ const CartDropdown = () => {
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
-
   const isCartOpen = useSelector(selectIsCartOpen);
+  const cartItems = useSelector(selectCartItems);
 
-  const toggleIsCartOpen = () => dispatch(setIsCartOpen(!isCartOpen));
+  const toggleIsCartClosed = () => dispatch(setIsCartOpen(!isCartOpen));
 
   const goToCheckoutHandler = useCallback(() => {
     navigate('/checkout');
-    toggleIsCartOpen();
+    toggleIsCartClosed();
   }, []);
-
-
-  const cartItems = useSelector(selectCartItems);
 
   return (
     <CartDropdownContainer>

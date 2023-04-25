@@ -11,7 +11,9 @@ export const PaymentFormContainer = styled.div`
 
 export const FormContainer = styled.form`
   height: 100px;
-  max-width: 300px;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const PaymentButton = styled(Button)`

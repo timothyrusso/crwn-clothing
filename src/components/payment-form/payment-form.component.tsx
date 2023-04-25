@@ -70,7 +70,7 @@ const PaymentForm = () => {
   return (
     <PaymentFormContainer>
       <FormContainer onSubmit={paymentHandler}>
-        <h2>Credit Card Payment: </h2>
+        <h2 style={{ fontSize: '20px' }}>Credit Card Payment: </h2>
         <CardElement />
         <PaymentButton
           isLoading={isProcessingPayment}

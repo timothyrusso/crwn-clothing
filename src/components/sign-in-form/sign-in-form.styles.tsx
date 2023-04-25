@@ -11,10 +11,15 @@ export const SignUpContainer = styled.div`
 
   @media screen and (max-width: 800px) {
     flex-direction: column;
+    margin-bottom: 40px;
   }
 `;
 
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+  }
 `;
